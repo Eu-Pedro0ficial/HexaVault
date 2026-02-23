@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: allure
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: allure
+  template:
+    metadata:
+      labels:
+        app: allure
+    spec:
+      containers:
+      - name: allure
+        image: frankescobar/allure-docker-service
+        ports:
+          - containerPort: 5050
